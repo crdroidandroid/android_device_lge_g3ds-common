@@ -141,6 +141,10 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
 
+# QuickCircle Case App
+PRODUCT_PACKAGES += \
+    QuickCircle
+
 # Keystore
 PRODUCT_PACKAGES += \
     keystore.msm8974
