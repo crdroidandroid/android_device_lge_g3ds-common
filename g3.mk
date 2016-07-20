@@ -65,14 +65,16 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwu
 
 # Art
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dex2oat-swap=false
+    dalvik.vm.dex2oat-swap=false \
+    dalvik.vm.dex2oat-filter=balanced \
+    dalvik.vm.image-dex2oat-filter=speed
 
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
+    audio.a2dp.default \
     audio.primary.msm8974 \
     audio_policy.msm8974 \
-    audio.a2dp.default \
     audio.r_submix.default \
     audio.usb.default \
     libqcompostprocbundle \
@@ -90,8 +92,8 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap \
-    camera.msm8974
+    camera.msm8974 \
+    Snap
 
 # Display
 PRODUCT_PACKAGES += \
@@ -109,14 +111,28 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gps.msm8974
 
+# Init
+PRODUCT_PACKAGES += \
+    fstab.g3 \
+    init.g3.rc \
+    init.g3.power.rc \
+    init.g3.usb.rc \
+    init.msm8974.sensor.sh \
+    init.qcom.sh \
+    init.qcom.bt.sh \
+    init.baseband.sh \
+    init.class_main.sh \
+    init.sensors.sh \
+    ueventd.g3.rc
+
+# IPC Security config
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+
 # IPv6 tethering
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
-
-# IRSC
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
 # Keystore
 PRODUCT_PACKAGES += \
@@ -126,15 +142,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.msm8974
 
-# Media
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
-
+# Media profile
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+
+# Misc dependencies
+PRODUCT_PACKAGES += \
+    libxml2
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -169,27 +188,21 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.msm8974
 
-# Radio
+# QMI
+PRODUCT_PACKAGES += \
+    dsi_config.xml \
+    netmgr_config.xml \
+    qmi_config.xml
+
+# RIL
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
-    libxml2
+    liblge \
+    librmnetctl
 
-# Ramdisk
-PRODUCT_PACKAGES += \
-    fstab.g3 \
-    init.g3.rc \
-    init.g3.power.rc \
-    init.g3.usb.rc \
-    init.msm8974.sensor.sh \
-    init.qcom.sh \
-    init.qcom.bt.sh \
-    init.baseband.sh \
-    init.sensors.sh \
-    ueventd.g3.rc
-
-# RIL symbols
-PRODUCT_PACKAGES += \
-    liblge
+# Sensors
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sensors/sensor_def_common.conf:system/etc/sensors/sensor_def_common.conf
 
 # Thermal
 PRODUCT_COPY_FILES += \

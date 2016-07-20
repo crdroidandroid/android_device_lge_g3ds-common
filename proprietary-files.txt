@@ -1,21 +1,28 @@
 # ADSP
 bin/adsprpcd
+vendor/lib/libacdbmapper.so
 vendor/lib/libadsprpc.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
+vendor/lib/libscve.so
+vendor/lib/libscve_stub.so
 
 # Audio
+vendor/lib/libacdbloader.so
+vendor/lib/libacdbrtac.so
+vendor/lib/libadiertac.so
+vendor/lib/libaudcal.so
+vendor/lib/libaudioalsa.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
 
 # Bluetooth
-bin/hci_qcomm_init
 vendor/lib/libbtnv.so
 
 # Camera
 bin/mm-qcamera-daemon
-lib/hw/camera.vendor.msm8974.so
+lib/hw/camera.msm8974.so
 lib/libalmalib.so
 lib/libalmcascore.so
 lib/libalmcaswrap.so
@@ -28,13 +35,11 @@ lib/libmorpho_image_stab31.so
 lib/libmorpho_noise_reduction.so
 lib/libmorpho_video_denoiser.so
 lib/libqomx_core.so
-vendor/lib/libactuator_dw9714.so
-vendor/lib/libactuator_dw9714_camcorder.so
-vendor/lib/libactuator_dw9714_camera.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
+vendor/lib/libmmcamera2_frame_algorithm.so
 vendor/lib/libmmcamera2_iface_modules.so
 vendor/lib/libmmcamera2_imglib_modules.so
 vendor/lib/libmmcamera2_is.so
@@ -47,19 +52,29 @@ vendor/lib/libmmcamera2_vpe_module.so
 vendor/lib/libmmcamera2_wnr_module.so
 vendor/lib/libmmcamera_faceproc.so
 vendor/lib/libmmcamera_hdr_gb_lib.so
+vendor/lib/libmmcamera_hdr_lib.so
 vendor/lib/libmmcamera_imglib.so
 vendor/lib/libmmcamera_imx135.so
 vendor/lib/libmmcamera_imx208.so
 vendor/lib/libmmcamera_sonyimx135_eeprom.so
+vendor/lib/libmmcamera_t4kb3_eeprom.so
+vendor/lib/libmmcamera_t4kb3.so
 vendor/lib/libmmcamera_tintless_algo.so
 vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_ubifocus_lib.so
+vendor/lib/libmmcamera_wavelet_lib.so
 vendor/lib/libmmipl.so
 vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/liboemcamera.so
+vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc.so
 vendor/lib/libubifocus.so
+
+# Camera actuators
+vendor/lib/libactuator_dw9714_camcorder.so
+vendor/lib/libactuator_dw9714_camera.so
+vendor/lib/libactuator_dw9714.so
 
 # Camera chromatix
 vendor/lib/libchromatix_imx135_30fps_common.so
@@ -89,60 +104,109 @@ vendor/lib/libchromatix_imx135_30fps_video_hdr.so
 vendor/lib/libchromatix_imx135_30fps_video_hd.so
 vendor/lib/libchromatix_imx135_30fps_video_qtr.so
 vendor/lib/libchromatix_imx208_common.so
+vendor/lib/libchromatix_imx208_common_qct.so
 vendor/lib/libchromatix_imx208_default_video.so
+vendor/lib/libchromatix_imx208_default_video_qct.so
 vendor/lib/libchromatix_imx208_mms_video.so
+vendor/lib/libchromatix_imx208_mms_video_qct.so
 vendor/lib/libchromatix_imx208_preview.so
+vendor/lib/libchromatix_imx208_preview_qct.so
 vendor/lib/libchromatix_imx208_vt.so
+vendor/lib/libchromatix_imx208_vt_qct.so
+
+# Camera configs
+#etc/camera_config.xml
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_1_1.fw
 etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/cpp_firmware_v1_2_1.fw
-etc/firmware/bu24205_LGIT_rev16_1_2030_data1.bin
-etc/firmware/bu24205_LGIT_rev16_1_2030_data2.bin
-etc/firmware/bu24205_LGIT_rev16_1_2030_data3.bin
-etc/firmware/bu24205_LGIT_rev7_1_data1.bin
-etc/firmware/bu24205_LGIT_rev7_1_data2.bin
-etc/firmware/bu24205_LGIT_rev7_1_data3.bin
-etc/firmware/DLdata_rev28B_data1.ecl
-etc/firmware/DLdata_rev28B_data2.ecl
-etc/firmware/DLdata_rev28B_data3.ecl
+
+# CNE
+bin/cnd
+etc/cne/andsfCne.xml
+etc/cne/SwimConfig.xml
+etc/permissions/cneapiclient.xml
+etc/permissions/com.quicinc.cne.xml
+etc/permissions/ConnectivityExt.xml
+-framework/cneapiclient.jar
+-framework/com.quicinc.cne.jar
+-framework/ConnectivityExt.jar
+-priv-app/CNEService/CNEService.apk
+vendor/lib/libcne.so
+vendor/lib/libcneapiclient.so
+vendor/lib/libcneconn.so
+vendor/lib/libcneqmiutils.so
+vendor/lib/libNimsWrap.so
+vendor/lib/libvendorconn.so
+vendor/lib/libwqe.so
+
+# DPM
+bin/dpm
+etc/dpm/dpm.conf
+etc/dpm/nsrm/NsrmConfiguration.xml
+etc/permissions/com.qti.dpmframework.xml
+etc/permissions/dpmapi.xml
+-framework/com.qti.dpmframework.jar
+-framework/dpmapi.jar
+vendor/lib/libdpmframework.so
+vendor/lib/libdpmnsrm.so
 
 # DRM
 bin/qseecomd
 lib/drm/libdrmwvmplugin.so
-vendor/lib/libDivxDrm.so
-vendor/lib/libHevcSwDecoder.so
 vendor/lib/libQSEEComAPI.so
-vendor/lib/libSHIMDivxDrm.so
 vendor/lib/libdrmdecrypt.so
 vendor/lib/libdrmdiag.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
-vendor/lib/libmmosal.so
 vendor/lib/librpmb.so
 vendor/lib/libssd.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
-vendor/lib/libWVphoneAPI.so
 vendor/lib/libWVStreamControlAPI_L1.so
 vendor/lib/mediadrm/libdrmclearkeyplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
-# Sensors
-bin/sensors.qcom
-vendor/lib/hw/sensors.msm8974.so
-vendor/lib/libsensor1.so
-vendor/lib/libsensor_reg.so
-
 # GPS
-etc/izat.conf
+#-priv-app/com.qualcomm.location/com.qualcomm.location.apk
+#bin/loc_launcher
+#bin/lowi-server
+#bin/xtwifi-client
+#bin/xtwifi-inet-agent
+#etc/izat.conf
+etc/lgodm/gps.cfg
+etc/lgodm/gps_sap_pdr.cfg
+#etc/permissions/com.qti.location.sdk.xml
+etc/permissions/com.qualcomm.location.xml
+#framework/com.qti.location.sdk.jar
+lib/hw/gps.default.so
+lib/libgps.utils.so
 lib/libloc_api_v02.so
-lib/libloc_ds_api.so
+lib/libloc_core.so
+lib/libloc_eng.so
+#vendor/bin/slim_daemon
+vendor/lib/hw/flp.default.so
+vendor/lib/libalarmservice_jni.so
+vendor/lib/libdataitems.so
+vendor/lib/libasn1crt.so
+vendor/lib/libasn1crtx.so
+vendor/lib/libasn1cper.so
+vendor/lib/libflp.so
+vendor/lib/libgdtap.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
+vendor/lib/liblocationservice.so
+#vendor/lib/liblocationservice_glue.so
+#vendor/lib/liblowi_client.so
+#vendor/lib/libslimclient.so
+vendor/lib/libquipc_os_api.so
+#vendor/lib/libulp2.so
+vendor/lib/libxtadapter.so
+vendor/lib/libxt_native.so
+#vendor/lib/libxtwifi_ulp_adaptor.so
 
 # Graphics
 vendor/lib/egl/eglsubAndroid.so
@@ -151,70 +215,135 @@ vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/libadreno_utils.so
-vendor/lib/libc2d30-a3xx.so
+vendor/lib/libbccQTI.so
 vendor/lib/libC2D2.so
+vendor/lib/libc2d30-a3xx.so
+vendor/lib/libc2d30-a4xx.so
 vendor/lib/libCB.so
 vendor/lib/libgsl.so
 vendor/lib/libllvm-qcom.so
+vendor/lib/libmmQSM.so
 vendor/lib/libOpenCL.so
 vendor/lib/librs_adreno_sha1.so
 vendor/lib/librs_adreno.so
 vendor/lib/libRSDriver_adreno.so
+vendor/lib/libsc-a2xx.so
 vendor/lib/libsc-a3xx.so
+vendor/lib/libscale.so
 
 # Graphics firmware
 etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
 
+# IR
+lib/hw/consumerir.msm8974.so
+lib/libcir_driver.so
+
+# Listen service
+vendor/lib/liblistensoundmodel.so
+
 # Media
+vendor/lib/libDivxDrm.so
+vendor/lib/libExtendedExtractor.so
+vendor/lib/libFileMux.so
+vendor/lib/libHevcSwDecoder.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmm-color-convertor.so
+vendor/lib/libmm-hdcpmgr.so
+vendor/lib/libmmosal.so
+vendor/lib/libOmxAacDec.so
+vendor/lib/libOmxAmrwbplusDec.so
+vendor/lib/libOmxEvrcDec.so
+vendor/lib/libOmxMux.so
+vendor/lib/libOmxQcelp13Dec.so
+vendor/lib/libOmxWmaDec.so
+vendor/lib/libSHIMDivxDrm.so
+vendor/lib/libmmparser.so
 
 # Perf
 bin/mpdecision
 vendor/lib/libqti-perfd-client.so
 
-# Qualcomm framework
-bin/irsc_util
+# Postprocessing
+vendor/lib/libdisp-aba.so
+vendor/lib/libmm-abl.so
+vendor/lib/libmm-abl-oem.so
 
-# Radio
--app/qcrilmsgtunnel/qcrilmsgtunnel.apk:app/qcrilmsgtunnel.apk
--app/shutdownlistener/shutdownlistener.apk:app/shutdownlistener.apk
-bin/radish
-lib/librmnetctl.so
+# QMI
+bin/irsc_util
+vendor/lib/libdiag.so
+vendor/lib/libdsi_netctrl.so
+vendor/lib/libdsutils.so
+vendor/lib/libidl.so
+vendor/lib/libqcci_legacy.so
+vendor/lib/libqdi.so
+vendor/lib/libqdp.so
+vendor/lib/libqmi.so
+vendor/lib/libqmi_cci.so
+vendor/lib/libqmi_client_helper.so
+vendor/lib/libqmi_client_qmux.so
+vendor/lib/libqmi_common_so.so
+vendor/lib/libqmi_csi.so
+vendor/lib/libqmi_encdec.so
+vendor/lib/libqmiservices.so
 vendor/lib/libsmemlog.so
 vendor/lib/libsystem_health_mon.so
-vendor/lib/libxml.so
+
+# Radio
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+-app/shutdownlistener/shutdownlistener.apk
+bin/qmuxd
+bin/radish
+lib/libmdmdetect.so
+lib/libril.so
+lib/librilutils.so
+lib/libuicc.so
+lib/libvss_bsp_qcci.so
+lib/libvss_common_idl.so
+lib/libvss_common_iface.so
+lib/libvss_dmi_qcci.so
+lib/libvss_gnss_qcci.so
+lib/libvss_ims_qcci.so
+lib/libvss_nv_idl.so
+lib/libvss_nv_iface.so
+lib/libvss_resim_idl.so
+lib/libvss_resim_iface.so
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
 -framework/qcnvitems.jar
 -framework/qcrilhook.jar
+vendor/lib/libconfigdb.so
+vendor/lib/liblqe.so
+vendor/lib/libnetmgr.so
+vendor/lib/libperipheral_client.so
+vendor/lib/libril-qc-radioconfig.so
+vendor/lib/libril-qcril-hook-oem.so
+vendor/lib/libxml.so
 
 # Sensors
-etc/sensors/sensor_def_common.conf
+vendor/lib/hw/activity_recognition.msm8974.so
+vendor/lib/hw/sensors.msm8974.so
+vendor/lib/libsensor_lge_cal.so
+vendor/lib/libsensor_reg.so
+vendor/lib/libsensor_test.so
+vendor/lib/libsensor_thresh.so
+vendor/lib/libsensor_user_cal.so
 
-# IR
-lib/libcir_driver.so
-lib/hw/consumerir.msm8974.so
+# Subsystem control
+vendor/lib/libsubsystem_control.so
+vendor/lib/libSubSystemShutdown.so
 
 # Thermal
-bin/thermal-engine
 vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
 # Time services
--app/TimeService/TimeService.apk:app/TimeService.apk
+-app/TimeService/TimeService.apk
 bin/time_daemon
 -vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
 
-# WCNSS
-vendor/firmware/wcnss.b00
-vendor/firmware/wcnss.b01
-vendor/firmware/wcnss.b02
-vendor/firmware/wcnss.b04
-vendor/firmware/wcnss.b06
-vendor/firmware/wcnss.b07
-vendor/firmware/wcnss.b08
-vendor/firmware/wcnss.b09
-vendor/firmware/wcnss.mdt
+# Video
+etc/firmware/leia_pfp_470.fw
+etc/firmware/leia_pm4_470.fw
+

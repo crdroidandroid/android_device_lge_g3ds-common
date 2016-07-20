@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 The CyanogenMod Project
+ * Copyright 2015 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include <cutils/log.h>
 #include <cutils/properties.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
@@ -33,8 +34,6 @@
 
 #include <hardware/lights.h>
 
-#define UNUSED __attribute__((unused))
-
 /******************************************************************************/
 
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
@@ -46,8 +45,11 @@ static struct light_state_t g_attention;
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
 
-char const*const PTN_BLINK_FILE
+char const*const EMOTIONAL_BLINK_FILE
         = "/sys/class/lg_rgb_led/use_patterns/blink_patterns";
+
+char const*const EMOTIONAL_ONOFF_FILE
+        = "/sys/class/lg_rgb_led/use_patterns/onoff_patterns";
 
 /**
  * device methods
@@ -120,7 +122,7 @@ rgb_to_brightness(struct light_state_t const* state)
 }
 
 static int
-set_light_backlight(UNUSED struct light_device_t* dev,
+set_light_backlight(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int err = 0;
@@ -132,14 +134,12 @@ set_light_backlight(UNUSED struct light_device_t* dev,
 }
 
 static int
-set_speaker_light_locked(UNUSED struct light_device_t* dev,
+set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
-
-    int len;
     int onMS, offMS;
     unsigned int colorRGB;
-    char blink_pattern[PAGE_SIZE];
+    char pattern[PAGE_SIZE];
 
     if (state != NULL) {
         switch (state->flashMode) {
@@ -149,15 +149,22 @@ set_speaker_light_locked(UNUSED struct light_device_t* dev,
                 break;
             case LIGHT_FLASH_NONE:
             default:
-                onMS = -1;
-                offMS = -1;
+                onMS = 0;
+                offMS = 0;
                 break;
         }
 
-        colorRGB = state->color;
+        colorRGB = state->color & 0x00ffffff;
 
-        sprintf(blink_pattern,"0x%x,%d,%d",colorRGB,onMS,offMS);
-        write_str(PTN_BLINK_FILE, blink_pattern);
+        if (offMS <= 0) {
+            sprintf(pattern,"0x%06x",colorRGB);
+            ALOGD("Using onoff pattern: 0x%06x\n",colorRGB);
+            write_str(EMOTIONAL_ONOFF_FILE, pattern);
+        } else {
+            sprintf(pattern,"0x%06x,%d,%d",colorRGB,onMS,offMS);
+            ALOGD("Using blink pattern: 0x%06x,%d,%d\n",colorRGB,onMS,offMS);
+            write_str(EMOTIONAL_BLINK_FILE, pattern);
+        }
     }
 
     return 0;
@@ -165,7 +172,7 @@ set_speaker_light_locked(UNUSED struct light_device_t* dev,
 
 static void
 handle_led_prioritized_locked(struct light_device_t* dev,
-        UNUSED struct light_state_t const* state)
+        struct light_state_t const* state)
 {
     if (is_lit(&g_attention)) {
         set_speaker_light_locked(dev, &g_attention);
