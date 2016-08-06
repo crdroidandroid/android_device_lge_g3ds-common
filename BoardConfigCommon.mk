@@ -38,8 +38,8 @@ TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
 # CNE and DPM
-TARGET_LDPRELOAD := libNimsWrap.so
-BOARD_USES_QCNE := true
+#TARGET_LDPRELOAD := libNimsWrap.so
+#BOARD_USES_QCNE := true
 
 # Kernel
 BOARD_CUSTOM_BOOTIMG := true
