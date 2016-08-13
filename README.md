@@ -20,4 +20,4 @@ Front Camera | 2.1 MP
 Release Date | May 2014
 
 
-![LG G3](http://upload.wikimedia.org/wikipedia/commons/7/7f/LG_G3.png "LG G3")
+![LG G3](http://cdn2.gsmarena.com/vv/pics/lg/lg-g3-6.jpg "LG G3")
