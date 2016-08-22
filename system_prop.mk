@@ -17,11 +17,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
 
-# CNE and DPM
-#PRODUCT_PROPERTY_OVERRIDES += \
-    #persist.cne.feature=0 \
-    #persist.dpm.feature=0
-
 # Data modules
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.use_data_netmgrd=true \

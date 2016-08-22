@@ -149,7 +149,6 @@ done
 
 # Pick up overlay for features that depend on non-open-source files
 PRODUCT_PACKAGES += \\
-    CNEService \\
     qcnvitems \\
     qcrilhook \\
     qcrilmsgtunnel \\
@@ -200,16 +199,6 @@ EOF
 LOCAL_PATH := \$(call my-dir)
 
 ifneq (\$(filter g3 d850 d851 d852 d855 d856 d857 d858 d859 ls990 vs985 f400,\$(TARGET_DEVICE)),)
-
-include \$(CLEAR_VARS)
-LOCAL_MODULE := CNEService
-LOCAL_MODULE_OWNER := $VENDOR
-LOCAL_SRC_FILES := proprietary/priv-app/CNEService/CNEService.apk
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
-LOCAL_MODULE_CLASS := APPS
-LOCAL_CERTIFICATE := platform
-include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
 LOCAL_MODULE := qcrilmsgtunnel
