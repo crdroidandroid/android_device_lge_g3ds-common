@@ -140,43 +140,12 @@ vendor/lib/mediadrm/libdrmclearkeyplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
 # GPS
-#-priv-app/com.qualcomm.location/com.qualcomm.location.apk
-#bin/loc_launcher
-#bin/lowi-server
-#bin/xtwifi-client
-#bin/xtwifi-inet-agent
-#etc/izat.conf
-etc/lgodm/gps.cfg
-etc/lgodm/gps_sap_pdr.cfg
-#etc/permissions/com.qti.location.sdk.xml
-etc/permissions/com.qualcomm.location.xml
-#framework/com.qti.location.sdk.jar
-lib/hw/gps.default.so
-lib/libgps.utils.so
 lib/libloc_api_v02.so
-lib/libloc_core.so
-lib/libloc_eng.so
-#vendor/bin/slim_daemon
 vendor/lib/hw/flp.default.so
-vendor/lib/libalarmservice_jni.so
-vendor/lib/libdataitems.so
-vendor/lib/libasn1crt.so
-vendor/lib/libasn1crtx.so
-vendor/lib/libasn1cper.so
 vendor/lib/libflp.so
-vendor/lib/libgdtap.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
-vendor/lib/liblocationservice.so
-#vendor/lib/liblocationservice_glue.so
-#vendor/lib/liblowi_client.so
-#vendor/lib/libslimclient.so
-vendor/lib/libquipc_os_api.so
-#vendor/lib/libulp2.so
-vendor/lib/libxtadapter.so
-vendor/lib/libxt_native.so
-#vendor/lib/libxtwifi_ulp_adaptor.so
 
 # Graphics
 vendor/lib/egl/eglsubAndroid.so
