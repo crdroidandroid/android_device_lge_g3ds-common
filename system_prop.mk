@@ -20,8 +20,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Data modules
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.use_data_netmgrd=true \
-    persist.data.netmgrd.qos.enable=true \
-    persist.qcril.disable_retry=true
+    persist.data.netmgrd.qos.enable=true
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -57,8 +56,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
-    rild.libargs=-d /dev/smd0 \
     persist.radio.apm_sim_not_pwdn=1 \
     persist.radio.add_power_save=1 \
     persist.rild.nitz_plmn="" \
@@ -71,8 +68,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_short_ons_2="" \
     persist.rild.nitz_short_ons_3="" \
     ril.subscription.types=NV,RUIM \
+    DEVICE_PROVISIONED=1 \
     ro.ril.telephony.mqanelements=5 \
-    DEVICE_PROVISIONED=1
+    persist.qcril.disable_retry=true \
+    persist.telephony.oosisdc=false
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -83,7 +82,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Time services
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true
-
-#
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.telephony.oosisdc=false
