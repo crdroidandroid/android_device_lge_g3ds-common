@@ -169,6 +169,7 @@ vendor/lib/libRSDriver_adreno.so
 vendor/lib/libsc-a2xx.so
 vendor/lib/libsc-a3xx.so
 vendor/lib/libscale.so
+vendor/lib/libuiblur.so
 
 # Graphics firmware
 etc/firmware/a330_pfp.fw
