@@ -250,8 +250,6 @@ lib/libvss_resim_idl.so
 lib/libvss_resim_iface.so
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
--framework/qcnvitems.jar
--framework/qcrilhook.jar
 vendor/lib/libcneapiclient.so
 vendor/lib/libconfigdb.so
 vendor/lib/liblqe.so
@@ -260,6 +258,8 @@ vendor/lib/libperipheral_client.so
 vendor/lib/libril-qc-radioconfig.so
 vendor/lib/libril-qcril-hook-oem.so
 vendor/lib/libxml.so
+framework/qcnvitems.jar
+framework/qcrilhook.jar
 
 # Sensors
 vendor/lib/hw/activity_recognition.msm8974.so
@@ -279,10 +279,10 @@ vendor/lib/libthermalclient.so
 vendor/lib/libthermalioctl.so
 
 # Time services
--app/TimeService/TimeService.apk
 bin/time_daemon
 -vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
+-app/TimeService/TimeService.apk
 
 # Video
 etc/firmware/leia_pfp_470.fw
